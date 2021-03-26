@@ -20,6 +20,6 @@ public class HomeController {
         return "badstudentList";
     }
 
-//啥时候杀杀杀
+
 //    @GetMapping
 }
