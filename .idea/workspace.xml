@@ -7,16 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b588d38-941c-4a0b-8142-b535cebd408c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/3f3a3a5c-8911-4b19-895a-90beb4a20c87.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/3f3a3a5c-8911-4b19-895a-90beb4a20c87/storage_v2/_src_/schema/hhhhh.aGbqBQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/3f3a3a5c-8911-4b19-895a-90beb4a20c87/storage_v2/_src_/schema/homework2.wlmRfw.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/3f3a3a5c-8911-4b19-895a-90beb4a20c87/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/3f3a3a5c-8911-4b19-895a-90beb4a20c87/storage_v2/_src_/schema/rrrr.gIw1AA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/3f3a3a5c-8911-4b19-895a-90beb4a20c87/storage_v2/_src_/schema/smbms.7piHBg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/3f3a3a5c-8911-4b19-895a-90beb4a20c87/storage_v2/_src_/schema/ssmbuild.gcgvLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cdu/jaav/controller/MangerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cdu/jaav/controller/MangerController.java" afterDir="false" />
     </list>
+    <list id="84f0357e-f20c-4549-8763-574a35df383f" name="Revert &quot;xdc 试一试就将计就计&quot;" comment="Revert &quot;xdc 试一试就将计就计&quot;&#10;&#10;This reverts commit d53912e9" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,6 +56,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="xxx" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IgnoredFileRootStore">
@@ -253,7 +252,7 @@
       <workItem from="1616663182773" duration="3681000" />
       <workItem from="1616718340105" duration="4484000" />
       <workItem from="1616730712472" duration="433000" />
-      <workItem from="1616752894350" duration="7710000" />
+      <workItem from="1616752894350" duration="8605000" />
     </task>
     <task id="LOCAL-00001" summary="xdc  2021.3.26 22.17 环境搭建和layui整合">
       <created>1616768296529</created>
@@ -269,7 +268,35 @@
       <option name="project" value="LOCAL" />
       <updated>1616768357949</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="xdc  2021.3.26 22.17 环境搭建和layui整合">
+      <created>1616768738708</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1616768738708</updated>
+    </task>
+    <task id="LOCAL-00004" summary="xdc 试一试">
+      <created>1616768969132</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1616768969132</updated>
+    </task>
+    <task id="LOCAL-00005" summary="xdc 试一试就将计就计">
+      <created>1616769296432</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1616769296432</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Revert &quot;xdc 试一试就将计就计&quot;&#10;&#10;This reverts commit d53912e9">
+      <created>1616769555004</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1616769555004</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,7 +340,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="xdc  2021.3.26 22.17 环境搭建和layui整合" />
-    <option name="LAST_COMMIT_MESSAGE" value="xdc  2021.3.26 22.17 环境搭建和layui整合" />
+    <MESSAGE value="xdc 试一试" />
+    <MESSAGE value="xdc 试一试就将计就计" />
+    <MESSAGE value="Revert &quot;xdc 试一试就将计就计&quot;&#10;&#10;This reverts commit d53912e9" />
+    <option name="LAST_COMMIT_MESSAGE" value="Revert &quot;xdc 试一试就将计就计&quot;&#10;&#10;This reverts commit d53912e9" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="79" key="#Project_Structure" timestamp="1616729353991">
@@ -344,14 +374,22 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="499" y="175" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1536.834@0.0.1536.834" timestamp="1616571567117" />
-    <state x="385" y="13" key="CommitChangelistDialog2" timestamp="1616768354067">
+    <state x="385" y="0" key="CommitChangelistDialog2" timestamp="1616769766431">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="385" y="13" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1616768354067" />
-    <state x="549" y="175" key="FileChooserDialogImpl" timestamp="1616768671243">
+    <state x="385" y="0" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1616769766431" />
+    <state x="93" y="93" width="1350" height="648" key="DiffContextDialog" timestamp="1616769745358">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="549" y="175" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1616768671243" />
+    <state x="93" y="93" width="1350" height="648" key="DiffContextDialog/0.0.1536.834@0.0.1536.834" timestamp="1616769745358" />
+    <state x="549" y="175" key="FileChooserDialogImpl" timestamp="1616769663552">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="549" y="175" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1616769663552" />
+    <state x="618" y="300" key="Github.ShareDialog" timestamp="1616769463536">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="618" y="300" key="Github.ShareDialog/0.0.1536.834@0.0.1536.834" timestamp="1616769463536" />
     <state width="1202" height="302" key="GridCell.Tab.0.bottom" timestamp="1616768543901">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
