@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cdu.jaav.dao.OrderDao">
+
+    <resultMap type="cdu.jaav.entity.Order" id="OrderMap">
+        <result property="sid" column="sid" jdbcType="INTEGER"/>
+        <result property="oid" column="oid" jdbcType="INTEGER"/>
+        <result property="starttime" column="startTime" jdbcType="TIMESTAMP"/>
+        <result property="endtime" column="endTime" jdbcType="TIMESTAMP"/>
+        <result property="did" column="did" jdbcType="INTEGER"/>
+        <result property="flag" column="flag" jdbcType="INTEGER"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="OrderMap">
+        select
+          sid, oid, startTime, endTime, did, flag, status
+        from library.order
+        where oid = #{oid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="OrderMap">
+        select
+          sid, oid, startTime, endTime, did, flag, status
+        from library.order
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="OrderMap">
+        select
+        sid, oid, startTime, endTime, did, flag, status
+        from library.order
+        <where>
+            <if test="sid != null">
+                and sid = #{sid}
+            </if>
+            <if test="oid != null">
+                and oid = #{oid}
+            </if>
+            <if test="starttime != null">
+                and startTime = #{starttime}
+            </if>
+            <if test="endtime != null">
+                and endTime = #{endtime}
+            </if>
+            <if test="did != null">
+                and did = #{did}
+            </if>
+            <if test="flag != null">
+                and flag = #{flag}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="oid" useGeneratedKeys="true">
+        insert into library.order(sid, startTime, endTime, did, flag, status)
+        values (#{sid}, #{starttime}, #{endtime}, #{did}, #{flag}, #{status})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="oid" useGeneratedKeys="true">
+        insert into library.order(sid, startTime, endTime, did, flag, status)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.sid}, #{entity.starttime}, #{entity.endtime}, #{entity.did}, #{entity.flag}, #{entity.status})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="oid" useGeneratedKeys="true">
+        insert into library.order(sid, startTime, endTime, did, flag, status)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.sid}, #{entity.starttime}, #{entity.endtime}, #{entity.did}, #{entity.flag}, #{entity.status})
+        </foreach>
+        on duplicate key update
+        sid = values(sid) , startTime = values(startTime) , endTime = values(endTime) , did = values(did) , flag =
+        values(flag) , status = values(status)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update library.order
+        <set>
+            <if test="sid != null">
+                sid = #{sid},
+            </if>
+            <if test="starttime != null">
+                startTime = #{starttime},
+            </if>
+            <if test="endtime != null">
+                endTime = #{endtime},
+            </if>
+            <if test="did != null">
+                did = #{did},
+            </if>
+            <if test="flag != null">
+                flag = #{flag},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+        </set>
+        where oid = #{oid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from library.order where oid = #{oid}
+    </delete>
+
+</mapper>

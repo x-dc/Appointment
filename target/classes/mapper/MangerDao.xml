@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cdu.jaav.dao.MangerDao">
+
+    <resultMap type="cdu.jaav.entity.Manger" id="MangerMap">
+        <result property="mid" column="mid" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="power" column="power" jdbcType="INTEGER"/>
+        <result property="tel" column="tel" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="MangerMap">
+        select
+          mid, name, power, tel
+        from library.manger
+        where mid = #{mid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="MangerMap">
+        select
+          mid, name, power, tel
+        from library.manger
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="MangerMap">
+        select
+        mid, name, power, tel
+        from library.manger
+        <where>
+            <if test="mid != null">
+                and mid = #{mid}
+            </if>
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="power != null">
+                and power = #{power}
+            </if>
+            <if test="tel != null">
+                and tel = #{tel}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="mid" useGeneratedKeys="true">
+        insert into library.manger(name, power, tel)
+        values (#{name}, #{power}, #{tel})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="mid" useGeneratedKeys="true">
+        insert into library.manger(name, power, tel)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.name}, #{entity.power}, #{entity.tel})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="mid" useGeneratedKeys="true">
+        insert into library.manger(name, power, tel)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.name}, #{entity.power}, #{entity.tel})
+        </foreach>
+        on duplicate key update
+        name = values(name) , power = values(power) , tel = values(tel)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update library.manger
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="power != null">
+                power = #{power},
+            </if>
+            <if test="tel != null">
+                tel = #{tel},
+            </if>
+        </set>
+        where mid = #{mid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from library.manger where mid = #{mid}
+    </delete>
+
+</mapper>

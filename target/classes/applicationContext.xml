@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--    扫描bean（排除)controller-->
+    <context:component-scan base-package="cdu.jaav">
+        <!--        排除-->
+        <!--        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
+        <!--        包括-->
+        <!--        <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>-->
+    </context:component-scan>
+
+
+    <!--获取database.properties配置文件-->
+    <context:property-placeholder location="classpath:database.properties" ignore-unresolvable="true"/>
+
+    <!--    配置数据源（德鲁伊数据路）-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <!--    配置sqlSessionFactory对象，注入数据库连接池并扫描对象映射的配置文件mapper-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mapperLocations" value="classpath:mapper/*.xml"/>
+    </bean>
+
+    <!--    事务处理-->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory"/>
+    </bean>
+
+    <!-- 4.配置扫描Dao接口包，动态实现Dao接口注入到spring容器中 -->
+    <!--解释 ：https://www.cnblogs.com/jpfss/p/7799806.html-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 注入sqlSessionFactory -->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <!-- 给出需要扫描Dao接口包 -->
+        <property name="basePackage" value="cdu.jaav.dao"/>
+    </bean>
+</beans>
