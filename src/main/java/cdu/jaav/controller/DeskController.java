@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 @RequestMapping("desk")
 public class DeskController {
     /**
-     * 服务对象
+     * 服务对象sagahasknaksmals,a;
      */
     @Resource
     private DeskService deskService;
