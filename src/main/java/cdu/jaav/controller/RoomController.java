@@ -20,6 +20,7 @@ public class RoomController {
     /**
      * 服务对象
      */
+//    asjaksa
     @Resource
     private RoomService roomService;
 
