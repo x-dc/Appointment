@@ -19,4 +19,7 @@ public class HomeController {
     public String badstudentList() {
         return "badstudentList";
     }
+
+
+//    @GetMapping
 }
