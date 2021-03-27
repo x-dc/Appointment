@@ -91,7 +91,7 @@
     </div>
 
     <div class="layui-body" style="width: 100%;height: 100%">
-        <iframe href="" src="${pageContext.request.contextPath}/getmain" width="100%" height="100%"
+        <iframe href="" src="${pageContext.request.contextPath}/main" width="100%" height="100%"
                 name="iframe"></iframe>
     </div>
 

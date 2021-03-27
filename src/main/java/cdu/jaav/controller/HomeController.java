@@ -2,26 +2,21 @@ package cdu.jaav.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-//sjksjk
-//askasjasl
-@Controller
-//sajksak
-public class HomeController {
-    @GetMapping("/hello")
-    public String index() {
-        return "helloView";
-    }
 
+@Controller
+public class HomeController {
     @GetMapping("/studentList")
     public String studentList() {
-        return "studentList";
+        return "student/studentList";
     }
 
     @GetMapping("/badstudentList")
     public String badstudentList() {
-        return "badstudentList";
+        return "student/badstudentList";
     }
 
-
-//    @GetMapping
+    @GetMapping("/main")
+    public String main() {
+        return "main";
+    }
 }

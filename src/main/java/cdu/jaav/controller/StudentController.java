@@ -23,13 +23,13 @@ public class StudentController {
 
     //    查看全部学生
     @GetMapping("selectAllStudentByPage")
-    public ResponseData<List> selectAllStudentByPage(int page, int limit){
-        return studentService.queryAllByPage(page,limit);
+    public ResponseData<List> selectAllStudentByPage(int page, int limit) {
+        return studentService.queryAllByPage(page, limit);
     }
 
     //    查看有违规记录的学生
     @GetMapping("selectStudentBad")
-    public ResponseData<List> selectStudentBad(int page,int limit){
+    public ResponseData<List> selectStudentBad(int page, int limit) {
         ResponseData<List> listResponseData = studentService.queryByFlag(page, limit);
         return listResponseData;
     }
