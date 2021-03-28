@@ -1,5 +1,6 @@
 package cdu.jaav.dao;
 
+import cdu.jaav.entity.DTO.DeskRoomDTO;
 import cdu.jaav.entity.Desk;
 import org.apache.ibatis.annotations.Param;
 
@@ -28,7 +29,7 @@ public interface DeskDao {
      * @param limit  查询条数
      * @return 对象列表
      */
-    List<Desk> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
+    List<DeskRoomDTO> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
 
 
     /**
@@ -79,4 +80,7 @@ public interface DeskDao {
      */
     int deleteById(Integer did);
 
+    int queryAllFreeCount();
+
+    List<DeskRoomDTO> queryAllDesk();
 }

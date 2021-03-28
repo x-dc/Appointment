@@ -1,7 +1,10 @@
 package cdu.jaav.service.impl;
 
 import cdu.jaav.dao.DeskDao;
+import cdu.jaav.entity.DTO.DeskRoomDTO;
 import cdu.jaav.entity.Desk;
+import cdu.jaav.entity.utils.ResponseData;
+import cdu.jaav.entity.utils.ResultEnums;
 import cdu.jaav.service.DeskService;
 import org.springframework.stereotype.Service;
 
@@ -38,8 +41,16 @@ public class DeskServiceImpl implements DeskService {
      * @return 对象列表
      */
     @Override
-    public List<Desk> queryAllByLimit(int offset, int limit) {
-        return this.deskDao.queryAllByLimit(offset, limit);
+    public ResponseData<List> queryAllByLimit(int offset, int limit) {
+        int start;
+        if (offset==1){
+            start=0;
+        }else {
+            start=offset*limit;
+        }
+        int i = deskDao.queryAllFreeCount();
+        List<DeskRoomDTO> desks = deskDao.queryAllByLimit(start, limit);
+        return new ResponseData<>(ResultEnums.SUCCESS,desks,i);
     }
 
     /**

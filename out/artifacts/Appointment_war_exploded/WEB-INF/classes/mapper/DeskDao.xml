@@ -7,7 +7,38 @@
         <result property="hid" column="hid" jdbcType="INTEGER"/>
         <result property="status" column="status" jdbcType="INTEGER"/>
     </resultMap>
+    <resultMap id="DeskRoomDTO" type="cdu.jaav.entity.DTO.DeskRoomDTO">
+        <result property="did" column="did" />
+        <result property="name" column="name"/>
+        <result property="location" column="location"/>
+        <result property="status" column="status"/>
+    </resultMap>
 
+    <!--查询空闲位子的个数-->
+    <select id="queryAllFreeCount" resultType="int">
+        select count(did) from desk where status=0;
+    </select>
+<!--    &lt;!&ndash;查询所有位子的个数&ndash;&gt;-->
+<!--    <select id="queryAllFreeCount" resultType="int">-->
+<!--        select count(did) from desk;-->
+<!--    </select>-->
+    <select id="queryAllDesk" resultMap="DeskRoomDTO">
+select
+ d.did did,r.name name,r.location location,d.status status
+from desk d,room r
+where d.hid=r.hid;
+    </select>
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="DeskRoomDTO">
+        select
+         d.did did,r.name name,r.location location,d.status status
+        from library.desk d,library.room r
+        where d.hid=r.hid
+        limit #{offset}, #{limit}
+    </select>
+
+
+    <!--    ///////////-->
     <!--查询单个-->
     <select id="queryById" resultMap="DeskMap">
         select
@@ -16,13 +47,6 @@
         where did = #{did}
     </select>
 
-    <!--查询指定行数据-->
-    <select id="queryAllByLimit" resultMap="DeskMap">
-        select
-          did, hid, status
-        from library.desk
-        limit #{offset}, #{limit}
-    </select>
 
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="DeskMap">
