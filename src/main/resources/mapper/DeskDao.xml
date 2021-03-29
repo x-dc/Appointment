@@ -38,7 +38,9 @@ limit #{offset}, #{limit}
         limit #{offset}, #{limit}
     </select>
 
-
+    <update id="updateStatus" parameterType="int">
+        update desk set status=1 where did=#{id}
+    </update>
     <!--    ///////////-->
     <!--查询单个-->
     <select id="queryById" resultMap="DeskMap">

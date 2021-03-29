@@ -101,4 +101,14 @@ public class DeskServiceImpl implements DeskService {
         int i = deskDao.queryAllCount();
         return new ResponseData<>(ResultEnums.SUCCESS,deskRoomDTOS,i);
     }
+
+    @Override
+    public ResponseData releaseDesk(Integer integer) {
+        int i = deskDao.updateStatus(integer);
+        if (i==1){
+            return new ResponseData(ResultEnums.SUCCESS);
+        }else {
+            return new ResponseData(ResultEnums.ERROR);
+        }
+    }
 }

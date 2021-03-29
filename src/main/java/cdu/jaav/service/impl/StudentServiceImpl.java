@@ -28,7 +28,7 @@ public class StudentServiceImpl implements StudentService {
      * @return 实例对象
      */
     @Override
-    public Student queryById(Integer sid) {
+    public Student queryById(int sid) {
         return this.studentDao.queryById(sid);
     }
 
@@ -51,9 +51,13 @@ public class StudentServiceImpl implements StudentService {
      * @return 实例对象
      */
     @Override
-    public Student insert(Student student) {
-        this.studentDao.insert(student);
-        return student;
+    public ResponseData insert(Student student) {
+        int insert = this.studentDao.insert(student);
+        if (insert==1){
+            return new ResponseData(ResultEnums.SUCCESS);
+        }else {
+            return new ResponseData(ResultEnums.ERROR);
+        }
     }
 
     /**
@@ -75,8 +79,14 @@ public class StudentServiceImpl implements StudentService {
      * @return 是否成功
      */
     @Override
-    public boolean deleteById(Integer sid) {
-        return this.studentDao.deleteById(sid) > 0;
+    public ResponseData deleteById(int sid) {
+        int i = this.studentDao.deleteById(sid);
+        System.out.println(sid);
+        if (i>0){
+            return new ResponseData(ResultEnums.SUCCESS);
+        }else {
+            return new ResponseData(ResultEnums.ERROR);
+        }
     }
 
 
@@ -106,5 +116,15 @@ public class StudentServiceImpl implements StudentService {
         int i = studentDao.queryAllCount();
         List<Student> students = studentDao.queryAllByLimit(start, limit);
         return new ResponseData<List>(ResultEnums.SUCCESS,students,i);
+    }
+
+    @Override
+    public ResponseData updateStatus(Student student) {
+        int i=studentDao.updateStudentStatus(student.getSid(),student.getStatus());
+        if (i>0){
+            return new ResponseData(ResultEnums.SUCCESS);
+        }else {
+            return new ResponseData(ResultEnums.ERROR);
+        }
     }
 }

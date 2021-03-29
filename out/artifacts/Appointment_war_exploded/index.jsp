@@ -71,7 +71,7 @@
                     </dl>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="javascript:;">位置管理</a>
+                    <a href="${pageContext.request.contextPath}/deskList" target="iframe">位置管理</a>
                     <dl class="layui-nav-child">
                         <dd><a href="javascript:;">查看位置</a></dd>
                         <dd><a href="javascript:;">释放位置</a></dd>

@@ -2,7 +2,6 @@ package cdu.jaav.controller;
 
 import cdu.jaav.entity.Student;
 import cdu.jaav.entity.utils.ResponseData;
-import cdu.jaav.entity.utils.ResultEnums;
 import cdu.jaav.service.StudentService;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,4 +33,23 @@ public class StudentController {
         return listResponseData;
     }
 
+    //    添加学生
+    @PutMapping("insertStudent")
+    public ResponseData insertStudent(Student student) {
+//        System.out.println(student);
+        return studentService.insert(student);
+    }
+
+    //通过sid删除学生
+    @DeleteMapping("deleteStudentById")
+    public ResponseData deleteStudentById(int sid) {
+//        System.out.println(id);
+        return studentService.deleteById(sid);
+    }
+    //修改学生账号状态
+    @PatchMapping("modifyStudentStatus")
+    public ResponseData modifyStudentStatus(Student student){
+//        System.out.println(student);
+        return studentService.updateStatus(student);
+    }
 }

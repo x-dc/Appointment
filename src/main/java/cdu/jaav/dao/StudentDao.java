@@ -19,7 +19,7 @@ public interface StudentDao {
      * @param sid 主键
      * @return 实例对象
      */
-    Student queryById(Integer sid);
+    Student queryById(int sid);
 
     /**
      * 查询指定行数据
@@ -77,7 +77,7 @@ public interface StudentDao {
      * @param sid 主键
      * @return 影响行数
      */
-    int deleteById(Integer sid);
+    int deleteById(int sid);
 //查询总数
 
     int queryAllCount();
@@ -85,4 +85,6 @@ public interface StudentDao {
     List<Student> queryByFlag(int start,int limit);
 
     int queryAllBadCount();
+
+    int updateStudentStatus(@Param("sid") int sid,@Param("status") int status);
 }

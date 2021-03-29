@@ -52,4 +52,6 @@ public interface DeskService {
 
     //    查询所有位置（分页）
     ResponseData<List> queryAllDeskByLimit(int page, int limit);
+
+    ResponseData releaseDesk(Integer integer);
 }

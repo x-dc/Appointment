@@ -89,4 +89,6 @@ public interface DeskDao {
 
     //查询所有位子的数量
     int queryAllCount();
+
+    int updateStatus(@Param("id") Integer integer);
 }

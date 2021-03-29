@@ -14,7 +14,7 @@ public class Student implements Serializable {
     /**
      * id
      */
-    private Integer sid;
+    private int sid;
     /**
      * 密码
      */
@@ -22,7 +22,7 @@ public class Student implements Serializable {
     /**
      * 1:拒绝访问，2：正常访问
      */
-    private Integer status;
+    private int status;
     /**
      * 名字
      */
@@ -30,18 +30,18 @@ public class Student implements Serializable {
     /**
      * 违规次数
      */
-    private Integer flag;
+    private int flag;
     /**
      * 第一次违规时间
      */
     private Date time;
 
 
-    public Integer getSid() {
+    public int getSid() {
         return sid;
     }
 
-    public void setSid(Integer sid) {
+    public void setSid(int sid) {
         this.sid = sid;
     }
 
@@ -53,11 +53,11 @@ public class Student implements Serializable {
         this.pwd = pwd;
     }
 
-    public Integer getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
@@ -69,11 +69,11 @@ public class Student implements Serializable {
         this.name = name;
     }
 
-    public Integer getFlag() {
+    public int getFlag() {
         return flag;
     }
 
-    public void setFlag(Integer flag) {
+    public void setFlag(int flag) {
         this.flag = flag;
     }
 
@@ -95,5 +95,15 @@ public class Student implements Serializable {
                 ", flag=" + flag +
                 ", time=" + time +
                 '}';
+    }
+
+    public Student(int sid, String name) {
+        this.sid = sid;
+        this.name = name;
+    }
+
+    public Student(int sid, int status) {
+        this.sid = sid;
+        this.status = status;
     }
 }

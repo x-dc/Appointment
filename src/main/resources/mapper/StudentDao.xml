@@ -37,6 +37,11 @@
     <select id="queryAllBadCount" resultType="int">
         SELECT  count(sid) from student where flag!=0;
     </select>
+    <!--新增所有列-->
+    <insert id="insert"  useGeneratedKeys="true">
+        insert into library.student(sid,name)
+        values ( #{sid},#{name})
+    </insert>
 
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="StudentMap">
@@ -73,11 +78,6 @@
         </where>
     </select>
 
-    <!--新增所有列-->
-    <insert id="insert" keyProperty="sid" useGeneratedKeys="true">
-        insert into library.student(pwd, status, name, flag, time)
-        values (#{pwd}, #{status}, #{name}, #{flag}, #{time})
-    </insert>
 
     <insert id="insertBatch" keyProperty="sid" useGeneratedKeys="true">
         insert into library.student(pwd, status, name, flag, time)
@@ -124,5 +124,9 @@
     <delete id="deleteById">
         delete from library.student where sid = #{sid}
     </delete>
+
+    <update id="updateStudentStatus">
+        update student set status=#{status} where sid=#{sid}
+    </update>
 
 </mapper>

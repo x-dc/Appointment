@@ -19,7 +19,7 @@ public interface StudentService {
      * @param sid 主键
      * @return 实例对象
      */
-    Student queryById(Integer sid);
+    Student queryById(int sid);
 
     /**
      * 查询多条数据
@@ -36,7 +36,7 @@ public interface StudentService {
      * @param student 实例对象
      * @return 实例对象
      */
-    Student insert(Student student);
+    ResponseData insert(Student student);
 
     /**
      * 修改数据
@@ -52,11 +52,13 @@ public interface StudentService {
      * @param sid 主键
      * @return 是否成功
      */
-    boolean deleteById(Integer sid);
+    ResponseData deleteById(int sid);
 
     //查询所有违规学生
     ResponseData<List> queryByFlag(int page, int limit);
 
     //查询所有学生信息
     ResponseData<List> queryAllByPage(int page, int limit);
+
+    ResponseData updateStatus(Student student);
 }

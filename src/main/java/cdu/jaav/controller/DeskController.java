@@ -2,6 +2,7 @@ package cdu.jaav.controller;
 
 import cdu.jaav.entity.Desk;
 import cdu.jaav.entity.utils.ResponseData;
+import cdu.jaav.entity.utils.ResultEnums;
 import cdu.jaav.service.DeskService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,7 +45,10 @@ public class DeskController {
 //    @GetMapping("releaseDesk")
 //    public ResponseData releaseDesk(ArrayList<Integer> arrayList){
 //        for (Integer integer : arrayList) {
-//            deskService.
+//            ResponseData responseData = deskService.releaseDesk(integer);
 //        }
+//        return new ResponseData(ResultEnums.SUCCESS);
 //    }
+
+
 }
