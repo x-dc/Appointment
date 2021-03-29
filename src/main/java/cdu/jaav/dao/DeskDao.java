@@ -29,7 +29,6 @@ public interface DeskDao {
      * @param limit  查询条数
      * @return 对象列表
      */
-    List<DeskRoomDTO> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
 
 
     /**
@@ -80,7 +79,14 @@ public interface DeskDao {
      */
     int deleteById(Integer did);
 
+    //查询所有空闲位子
+    List<DeskRoomDTO> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
+
+    //查询空闲位子的数量
     int queryAllFreeCount();
 
-    List<DeskRoomDTO> queryAllDesk();
+    List<DeskRoomDTO> queryAllDesk(@Param("offset") int offset, @Param("limit") int limit);
+
+    //查询所有位子的数量
+    int queryAllCount();
 }

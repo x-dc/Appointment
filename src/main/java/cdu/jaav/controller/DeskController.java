@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,10 +26,25 @@ public class DeskController {
     @Resource
     private DeskService deskService;
 
-//    查询空闲位置
+    //    查询空闲位置
     @GetMapping("getFreeDesk")
-    private ResponseData<List> getFreeDesk(int page,int limit){
+    public ResponseData<List> getFreeDesk(int page, int limit) {
         ResponseData<List> listResponseData = deskService.queryAllByLimit(page, limit);
         return listResponseData;
     }
+
+    //    查询所有位子
+    @GetMapping("queryAllDesk")
+    public ResponseData<List> queryAllDesk(int page, int limit) {
+        ResponseData<List> listResponseData = deskService.queryAllDeskByLimit(page, limit);
+        return listResponseData;
+    }
+
+////    释放位子
+//    @GetMapping("releaseDesk")
+//    public ResponseData releaseDesk(ArrayList<Integer> arrayList){
+//        for (Integer integer : arrayList) {
+//            deskService.
+//        }
+//    }
 }

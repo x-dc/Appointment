@@ -33,25 +33,6 @@ public class DeskServiceImpl implements DeskService {
         return this.deskDao.queryById(did);
     }
 
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit  查询条数
-     * @return 对象列表
-     */
-    @Override
-    public ResponseData<List> queryAllByLimit(int offset, int limit) {
-        int start;
-        if (offset==1){
-            start=0;
-        }else {
-            start=offset*limit;
-        }
-        int i = deskDao.queryAllFreeCount();
-        List<DeskRoomDTO> desks = deskDao.queryAllByLimit(start, limit);
-        return new ResponseData<>(ResultEnums.SUCCESS,desks,i);
-    }
 
     /**
      * 新增数据
@@ -86,5 +67,38 @@ public class DeskServiceImpl implements DeskService {
     @Override
     public boolean deleteById(Integer did) {
         return this.deskDao.deleteById(did) > 0;
+    }
+
+    /**
+     * 查询多条数据
+     *
+     * @param offset 查询起始位置
+     * @param limit  查询条数
+     * @return 对象列表
+     */
+    @Override
+    public ResponseData<List> queryAllByLimit(int offset, int limit) {
+        int start;
+        if (offset==1){
+            start=0;
+        }else {
+            start=offset*limit;
+        }
+        int i = deskDao.queryAllFreeCount();
+        List<DeskRoomDTO> desks = deskDao.queryAllByLimit(start, limit);
+        return new ResponseData<>(ResultEnums.SUCCESS,desks,i);
+    }
+
+    @Override
+    public ResponseData<List> queryAllDeskByLimit(int offset, int limit) {
+        int start;
+        if (offset==1){
+            start=0;
+        }else {
+            start=offset*limit;
+        }
+        List<DeskRoomDTO> deskRoomDTOS = deskDao.queryAllDesk(start,limit);
+        int i = deskDao.queryAllCount();
+        return new ResponseData<>(ResultEnums.SUCCESS,deskRoomDTOS,i);
     }
 }

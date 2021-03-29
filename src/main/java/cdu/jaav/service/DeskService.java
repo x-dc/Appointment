@@ -21,14 +21,6 @@ public interface DeskService {
      */
     Desk queryById(Integer did);
 
-    /**
-     * 查询多条数据
-     *
-     * @param offset 查询起始位置
-     * @param limit  查询条数
-     * @return 对象列表
-     */
-   ResponseData<List> queryAllByLimit(int offset, int limit);
 
     /**
      * 新增数据
@@ -54,4 +46,10 @@ public interface DeskService {
      */
     boolean deleteById(Integer did);
 
+    //、、、、、、、、、、、、、、、
+    //    查询空闲位置（分页）
+    ResponseData<List> queryAllByLimit(int offset, int limit);
+
+    //    查询所有位置（分页）
+    ResponseData<List> queryAllDeskByLimit(int page, int limit);
 }
