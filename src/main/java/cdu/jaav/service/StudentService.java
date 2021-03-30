@@ -60,5 +60,6 @@ public interface StudentService {
     //查询所有学生信息
     ResponseData<List> queryAllByPage(int page, int limit);
 
+    //KKkkkkkkkkkkkk
     ResponseData updateStatus(Student student);
 }
